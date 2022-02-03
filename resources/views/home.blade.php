@@ -25,6 +25,7 @@
     function kvadrat() {
         let pole = document.getElementById("pole");
         document.location.href = pole.value;
+
     }
 </script>
 
