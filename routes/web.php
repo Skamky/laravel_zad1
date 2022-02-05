@@ -15,10 +15,10 @@ use Illuminate\Support\Facades\Route;
 // и контроллер (app/http/controllers/название_файла_контроллера)
 // где IndexController - название класса и файла контроллера
 // @home - название вызаваемого метода
-//Route::get('/welcome','IndexController@welcome');
+Route::get('/welcome','IndexController@welcome');
 Route::get('/', 'IndexController@home2');
 //Route::get('/{userName}','IndexController@UserPage');
-Route::get('/{numb}', 'IndexController@numbers');
+//Route::get('/{numb}', 'IndexController@numbers');
 Route::post('/store', 'IndexController@store');
 
-Route::post('/store', 'IndexController@myPosts');
+Route::post('/myPosts', 'IndexController@myPosts');

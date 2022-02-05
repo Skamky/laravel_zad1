@@ -36,9 +36,7 @@ class IndexController extends Controller
     {
         $contact = new Contact;
         $contact->person_name = $request->name;
-
         $contact->person_email = $request->email;
-
         $contact->message = $request->message;
         $contact->save();
         return redirect("/");
@@ -49,8 +47,18 @@ class IndexController extends Controller
     {
         $posts = new Post;
         $posts = Post::all();
-        return view("myposts",["post"=>$posts]);
+        return view("myposts",["posts"=>$posts]);
 
     }
-    //сделать контроллер для обработки формы
+
+    public function  myPosts(Request $request)
+    {
+        $post = new Post;
+        $post ->post_title  = $request->post_title;
+        $post ->post_text = $request ->post_text;
+        $post ->post_img = 'notimgjpeg';
+        $post->save();
+        return redirect("/");
+
+    }
 }
