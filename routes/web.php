@@ -16,7 +16,9 @@ use Illuminate\Support\Facades\Route;
 // где IndexController - название класса и файла контроллера
 // @home - название вызаваемого метода
 //Route::get('/welcome','IndexController@welcome');
-Route::get('/', 'IndexController@home');
+Route::get('/', 'IndexController@home2');
 //Route::get('/{userName}','IndexController@UserPage');
 Route::get('/{numb}', 'IndexController@numbers');
+Route::post('/store', 'IndexController@store');
 
+Route::post('/store', 'IndexController@myPosts');
