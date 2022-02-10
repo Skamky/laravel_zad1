@@ -1,5 +1,5 @@
 @include("header")
-
+<h1>Добавление нового поста</h1>
 <form action="/myPosts" method="post">
 
     <input class="form-control" type="text" name="post_title" required placeholder="Название поста...">
@@ -12,6 +12,8 @@
     <input type="submit">
     @csrf
 </form>
+<hr>
+<h1>Добавленные посты</h1>
 <table class="table table-dark  table-striped">
     <thead>
         <tr>
