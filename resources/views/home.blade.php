@@ -10,9 +10,9 @@
 <a href="32">32</a>
 <hr>
 <input type="number" id="pole" >
-<button onclick="kvadrat()" class="btn btn-success">Расчитать</button>
+<button onclick="kvadrat()" class="btn btn-primary">Расчитать</button>
 
-<table class="table table-striped">
+<table class="table table-dark  table-striped">
     <thead>
     <tr>
         <th scope="col">NAme</th>
@@ -39,7 +39,7 @@
 
     <input type="text" name="message" placeholder="Message...">
 
-    <input type="submit">
+    <input class="btn  btn-primary " type="submit">
 
     @csrf
 
@@ -48,7 +48,6 @@
     function kvadrat() {
         let pole = document.getElementById("pole");
         document.location.href = pole.value;
-
     }
 </script>
 

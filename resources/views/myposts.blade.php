@@ -1,4 +1,4 @@
-@include("header");
+@include("header")
 
 <form action="/myPosts" method="post">
 
@@ -12,7 +12,7 @@
     <input type="submit">
     @csrf
 </form>
-<table class="table table-striped">
+<table class="table table-dark  table-striped">
     <thead>
         <tr>
             <th scope="col">Название</th>
