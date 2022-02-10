@@ -10,14 +10,11 @@
     <input type="file" id="img_post" name="img_post">
 
     <input type="submit">
-
     @csrf
 </form>
-
 <table class="table table-striped">
     <thead>
         <tr>
-
             <th scope="col">Название</th>
             <th scope="col">Текст</th>
             <th scope="col">Картинка</th>
@@ -26,11 +23,8 @@
     @foreach($posts as $post)
         <tr>
             <td>{{$post->post_title}}</td>
-
             <td> {{$post->post_text}}</td>
-
             <td> {{$post->post_img}}</td>
-
         </tr>
     @endforeach
 </table>

@@ -17,8 +17,11 @@ use Illuminate\Support\Facades\Route;
 // @home - название вызаваемого метода
 Route::get('/welcome','IndexController@welcome');
 Route::get('/', 'IndexController@home2');
+Route::get('/kvadrat','IndexController@home');
 //Route::get('/{userName}','IndexController@UserPage');
-//Route::get('/{numb}', 'IndexController@numbers');
+Route::get('/{numb}', 'IndexController@numbers');
+
+
 Route::post('/store', 'IndexController@store');
 
 Route::post('/myPosts', 'IndexController@myPosts');

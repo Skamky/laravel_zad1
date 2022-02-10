@@ -1,4 +1,4 @@
-@include("header");
+@include("header")
 
 <h1> This is my page Laravl!</h1>
 
@@ -9,30 +9,27 @@
 <a href="16">16</a>
 <a href="32">32</a>
 <hr>
-<input type="number" id="pole">
-<button onclick="kvadrat()">Расчитать</button>
+<input type="number" id="pole" >
+<button onclick="kvadrat()" class="btn btn-success">Расчитать</button>
 
 <table class="table table-striped">
     <thead>
-{{--    <tr>--}}
+    <tr>
+        <th scope="col">NAme</th>
+        <th scope="col">Email:</th>
+       <th scope="col">Message:</th>
 {{--        <th scope="col"></th>--}}
-{{--        <th scope="col"></th>--}}
-{{--        <th scope="col"></th>--}}
-{{--        <th scope="col"></th>--}}
-{{--    </tr>--}}
+    </tr>
     </thead>
 @foreach($contacts as $contact)
         <tr>
-    <td>Name: {{$contact->person_name}}</td>
-
-    <td>Email: {{$contact->person_email}}</td>
-
-    <td>Message: {{$contact->message}}</td>
-
+    <td> {{$contact->person_name}}</td>
+    <td> {{$contact->person_email}}</td>
+    <td> {{$contact->message}}</td>
         </tr>
 @endforeach
 </table>
-<h1>Колличество {{$count}}</h1>
+<h3>Колличество записей {{$count}}</h3>
 
 <form action="/store" method="post">
 

@@ -22,7 +22,6 @@ class IndexController extends Controller
     }
     public function numbers($numb)
     {
-
         $numb2=$numb*$numb;
         return view('numbers',["numb"=>$numb,"numb2"=>$numb2]);
     }
@@ -39,9 +38,7 @@ class IndexController extends Controller
         $contact->person_email = $request->email;
         $contact->message = $request->message;
         $contact->save();
-        return redirect("/");
-
-
+        return redirect("/kvadrat");
     }
     public function home2()
     {
