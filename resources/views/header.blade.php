@@ -6,7 +6,7 @@
 <!--    <link rel="stylesheet" type="text/css" href="style.css">-->
 <!--    <script  src="script.js" async defer></script>-->
 
-    <link rel="shortcut icon" href="/img/da2tdsi-a4cdaef6-e914-4f42-bd94-30f422dd428d.gif" type="image/gif">
+    <link rel="shortcut icon" href="/img/catico.gif" type="image/gif">
     <!--    jqury-->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js" ></script>
 

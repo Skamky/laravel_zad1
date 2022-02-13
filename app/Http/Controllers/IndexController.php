@@ -11,7 +11,8 @@ class IndexController extends Controller
     //метод обязательно должен возращать вид(\resources\views)
     public function home()
     {
-        $contacts = Contact::orderBy("person_name","desc")->get();
+        $contacts = Contact::orderBy("person_name","asc")->get();
+
         $count = Contact::all()->count();
         return view('home',["contacts"=>$contacts,"count"=>$count]);
     }
@@ -50,10 +51,28 @@ class IndexController extends Controller
 
     public function  myPosts(Request $request)
     {
+        $image = $request->file('img_post');
+//        $imagename= $image->getClientOriginalName();
+
+            if($image==null)
+            {$imagename='notimg.jpg';}
+                else {
+                    $imagename= $image->getClientOriginalName();
+                    $image->move('img', $image->getClientOriginalName());
+                }
+
+
+//            $image=$_FILES['img_post']['name'];
+//            $image=str_replace(' ','|',$image);
+//            $image="img/".$image;
+//
+//            move_uploaded_file($_FILES['img_post']['tmp_name'],$image);
+
+
         $post = new Post;
         $post ->post_title  = $request->post_title;
         $post ->post_text = $request ->post_text;
-        $post ->post_img = 'notimgjpeg';
+        $post ->post_img = "img/".$imagename;
         $post->save();
         return redirect("/");
 

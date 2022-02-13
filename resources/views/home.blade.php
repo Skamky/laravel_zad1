@@ -15,17 +15,22 @@
 <table class="table table-dark  table-striped">
     <thead>
     <tr>
+        <th scope="col">#</th>
         <th scope="col">NAme</th>
         <th scope="col">Email:</th>
        <th scope="col">Message:</th>
 {{--        <th scope="col"></th>--}}
     </tr>
     </thead>
+    @php
+        $i = 0;
+    @endphp
 @foreach($contacts as $contact)
         <tr>
-    <td> {{$contact->person_name}}</td>
-    <td> {{$contact->person_email}}</td>
-    <td> {{$contact->message}}</td>
+            <td>{{$i=$i+1}}</td>
+            <td> {{$contact->person_name}}</td>
+            <td> {{$contact->person_email}}</td>
+            <td> {{$contact->message}}</td>
         </tr>
 @endforeach
 </table>
