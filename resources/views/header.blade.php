@@ -31,7 +31,7 @@
             <div class="navbar-nav">
                 <a class="nav-link " aria-current="page" href="welcome">welcome</a>
                 <a class="nav-link" href="/">home(/)Посты </a>
-                <a class="nav-link" href="kvadrat">kvadrat</a>
+                <a class="nav-link" href="kvadrat">kvadrat&conatact</a>
                 <a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Disabled</a>
             </div>
         </div>

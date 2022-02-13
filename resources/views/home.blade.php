@@ -34,20 +34,25 @@
         </tr>
 @endforeach
 </table>
-<h3>Колличество записей {{$count}}</h3>
+<h3>Колличество записей {{$countPerson}}</h3>
 
+{{--генерация исключений--}}
+@if ($errors->any())
+    <div class="alert alert-danger">
+        <ul>
+            @foreach ($errors->all() as $error)
+                <li>{{ $error }}</li>
+            @endforeach
+        </ul>
+    </div>
+@endif
 <form action="/store" method="post">
-
-    <input type="text" name="name" placeholder="Name...">
-
-    <input type="text" name="email" placeholder="Email...">
-
-    <input type="text" name="message" placeholder="Message...">
-
+    <input type="text" name="person_name" required placeholder="Name..." value="{{old('person_name')}}">
+    <input type="text" name="person_email" required placeholder="Email..." value="{{old('person_email')}}">
+    <input type="text" name="message"  placeholder="Message..." value="{{old('message')}}">
     <input class="btn  btn-primary " type="submit">
 
     @csrf
-
 </form>
 <script>
     function kvadrat() {
@@ -56,6 +61,5 @@
     }
 </script>
 
-{{--<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-gtEjrD/SeCtmISkJkNUaaKMoLD0//ElJ19smozuHV6z3Iehds+3Ulb9Bn9Plx0x4" crossorigin="anonymous"></script>--}}
 </body>
 </html>

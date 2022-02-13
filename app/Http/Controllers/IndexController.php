@@ -14,8 +14,26 @@ class IndexController extends Controller
         $contacts = Contact::orderBy("person_name","asc")->get();
 
         $count = Contact::all()->count();
-        return view('home',["contacts"=>$contacts,"count"=>$count]);
+        return view('home',["contacts"=>$contacts,"countPerson"=>$count]);
     }
+    public function store(Request $request)
+    {
+        $validated = $request->validate
+        ([
+            'person_name' => 'required|max:50',
+            'person_email' => 'required| unique:contacts| max: 100|email',
+            'message' => 'required',
+        ]);
+
+        $contact = new Contact;
+        $contact->person_name = $request->person_name;
+        $contact->person_email = $request->person_email;
+        $contact->message = $request->message;
+
+        $contact->save();
+        return redirect("/kvadrat");
+    }
+
     //кроме этого в методе можно передавать пачку параметров, которые находяться в массиве в []
     public function   UserPage($userName)
     {
@@ -31,48 +49,48 @@ class IndexController extends Controller
         return view('welcome');
     }
 
-    public function store(Request $request)
 
-    {
-        $contact = new Contact;
-        $contact->person_name = $request->name;
-        $contact->person_email = $request->email;
-        $contact->message = $request->message;
-        $contact->save();
-        return redirect("/kvadrat");
-    }
     public function home2()
     {
         $posts = new Post;
         $posts = Post::all();
         return view("myposts",["posts"=>$posts]);
-
     }
 
     public function  myPosts(Request $request)
     {
-        $image = $request->file('img_post');
+        $image = $request->file('post_img');
 //        $imagename= $image->getClientOriginalName();
 
             if($image==null)
-            {$imagename='notimg.jpg';}
+            {
+                $imagename='notimg.jpg';
+                $validated = $request->validate
+                ([
+                    'post_title' => 'required|max:255',
+                    'post_text' => 'required| max: 65535',
+                ]);
+            }
                 else {
+                    $validated = $request->validate
+                    ([
+                        'post_title' => 'required|max:255',
+                        'post_text' => 'required| max: 65535',
+                        'post_img'=>'image'
+                    ]);
+
                     $imagename= $image->getClientOriginalName();
                     $image->move('img', $image->getClientOriginalName());
                 }
 
 
-//            $image=$_FILES['img_post']['name'];
-//            $image=str_replace(' ','|',$image);
-//            $image="img/".$image;
-//
-//            move_uploaded_file($_FILES['img_post']['tmp_name'],$image);
 
 
         $post = new Post;
         $post ->post_title  = $request->post_title;
         $post ->post_text = $request ->post_text;
         $post ->post_img = "img/".$imagename;
+
         $post->save();
         return redirect("/");
 
